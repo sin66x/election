@@ -1,6 +1,4 @@
-$(document).ready(function(){
-
-    var data = {
+var data = {
                "provinces" : [
                	{
                	 "code" : "1" ,
@@ -35,29 +33,18 @@ $(document).ready(function(){
                ]
                };
 
+$(document).ready(function(){
+
     for (i=0;i<data["provinces"].length;i++){
         $("select#provinceCode").append( $("<option />").val(data["provinces"][i]["code"]).text(data["provinces"][i]["name"]) );
     }
 
 
-//    $.each(data, function(key, value) {
-//      var i = Object.keys(value)[0];
-//      alert (value[i][1][0]['a']);
-//      $("select#provinceCode").append( $("<option />").val(i).text(value[i][0]) );
-//      });
-
     $("#provinceCode").change(function() {
-        for (i=0;i<data["provinces"].length;i++){
-                if(data["provinces"][i]["code"]==$("#provinceCode").val()){
-                    for (j=0;j<data["provinces"][i]["branches"].length;j++){
-                        $("select#branchCode").append( $("<option />").val(data["provinces"][i]["branches"][j]["code"]).text(data["provinces"][i]["branches"][j]["name"]) );
-                    }
-                }
-            }
+        makeBranchOptions();
     });
 
-     makeStartDate();
-     makeEndDate();
+     makeBranchOptions();
      $("#clear").click(function() {
                 $("#id").val(0);
                 $("#firstName").val("");
@@ -83,10 +70,6 @@ $(document).ready(function(){
 
          });
 
-//    $(".input_date").change(function() {
-//        makeStartDate();
-//        makeEndDate();
-//    });
     $('[id^="removeBtn"]').click(function() {
         removeId = $(this).val();
         $.ajax({
@@ -115,6 +98,7 @@ $(document).ready(function(){
                 alert('error');
             },
             success : function(data) {
+                makeBranchOptions();
                 $("#id").val(data.id);
                 $("#firstName").val(data.firstName);
                 $("#lastName").val(data.lastName);
@@ -136,16 +120,20 @@ $(document).ready(function(){
                 $("#externalHistory").val(data.externalHistory);
                 $("#election").val(data.election);
                 $("#isActive").val(data.isActive);
+
             }
         });
         return false;
     });
  });
 
- function makeStartDate(){
-    $("#startDate").val($("#startYear").val()+"/"+$("#startMonth").val()+"/"+$("#startDay").val());
- }
+ function makeBranchOptions(){
+        for (i=0;i<data["provinces"].length;i++){
+                if(data["provinces"][i]["code"]==$("#provinceCode").val()){
+                    for (j=0;j<data["provinces"][i]["branches"].length;j++){
+                        $("select#branchCode").append( $("<option />").val(data["provinces"][i]["branches"][j]["code"]).text(data["provinces"][i]["branches"][j]["name"]) );
+                    }
+                }
+            }
 
-  function makeEndDate(){
-     $("#endDate").val($("#endYear").val()+"/"+$("#endMonth").val()+"/"+$("#endDay").val());
-  }
+ }

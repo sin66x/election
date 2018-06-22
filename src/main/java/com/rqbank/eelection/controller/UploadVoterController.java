@@ -1,7 +1,9 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.User;
 import com.rqbank.eelection.service.UserService;
+import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +25,17 @@ public class UploadVoterController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    Pair langPair;
+
     @RequestMapping(value = "/uploadVoter", method = RequestMethod.GET)
     public String loadPage(Model model, @RequestParam("election") String electionId) {
         model.addAttribute("file", new MyModelAttribute());
         model.addAttribute("electionId", electionId);
         model.addAttribute("users",userService.findUsersForElection(electionId));
+        model.addAttribute("messages", Messages.getInst());
+        model.addAttribute("lang", langPair.name);
+        model.addAttribute("langDir", langPair.value);
         return "upload-voters";
     }
 

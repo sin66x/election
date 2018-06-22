@@ -1,0 +1,195 @@
+<messages>
+    <message id="InsertCatName">
+        <msg-lang lang="fa">نام دسته را وارد کنید:</msg-lang>
+        <msg-lang lang="en">Insert category name:</msg-lang>
+    </message>
+    <message id="SelectParent">
+        <msg-lang lang="fa">دسته بالاتر را انتخاب کنید:</msg-lang>
+        <msg-lang lang="en">Select parent category:</msg-lang>
+    </message>
+    <message id="SelectOne">
+        <msg-lang lang="fa">-- انتخاب --</msg-lang>
+        <msg-lang lang="en">-- Select One --</msg-lang>
+    </message>
+    <message id="Submit">
+        <msg-lang lang="fa">ثبت</msg-lang>
+        <msg-lang lang="en">Submit</msg-lang>
+    </message>
+    <message id="Clear">
+        <msg-lang lang="fa">پاکسازی</msg-lang>
+        <msg-lang lang="en">Clear</msg-lang>
+    </message>
+    <message id="Edit">
+        <msg-lang lang="fa">ویرایش</msg-lang>
+        <msg-lang lang="en">Edit</msg-lang>
+    </message>
+    <message id="Remove">
+        <msg-lang lang="fa">حذف</msg-lang>
+        <msg-lang lang="en">Remove</msg-lang>
+    </message>
+    <message id="Logout">
+        <msg-lang lang="fa">خروج</msg-lang>
+        <msg-lang lang="en">Logout</msg-lang>
+    </message>
+    <message id="Name">
+        <msg-lang lang="fa">نام:</msg-lang>
+        <msg-lang lang="en">Name:</msg-lang>
+    </message>
+    <message id="MaxSelection">
+        <msg-lang lang="fa">تعداد کاندیداهای قابل انتخاب:</msg-lang>
+        <msg-lang lang="en">Maximum selectable candidates:</msg-lang>
+    </message>
+    <message id="Start">
+        <msg-lang lang="fa">آغاز:</msg-lang>
+        <msg-lang lang="en">شروع:</msg-lang>
+    </message>
+    <message id="Date">
+        <msg-lang lang="fa">تاریخ:</msg-lang>
+        <msg-lang lang="en">Date:</msg-lang>
+    </message>
+    <message id="End">
+        <msg-lang lang="fa">پایان:</msg-lang>
+        <msg-lang lang="en">End:</msg-lang>
+    </message>
+    <message id="Candidates">
+        <msg-lang lang="fa">نامزدها</msg-lang>
+        <msg-lang lang="en">Candidates:</msg-lang>
+    </message>
+    <message id="Voters">
+        <msg-lang lang="fa">رای دهندگان</msg-lang>
+        <msg-lang lang="en">Voters:</msg-lang>
+    </message>
+    <message id="LastName">
+        <msg-lang lang="fa">نام خانوادگی:</msg-lang>
+        <msg-lang lang="en">Last Name:</msg-lang>
+    </message>
+    <message id="FatherName">
+        <msg-lang lang="fa">نام پدر:</msg-lang>
+        <msg-lang lang="en">Father Name:</msg-lang>
+    </message>
+    <message id="CandidateCode">
+        <msg-lang lang="fa">کد نامزد:</msg-lang>
+        <msg-lang lang="en">Candidate Code:</msg-lang>
+    </message>
+    <message id="BirthDate">
+        <msg-lang lang="fa">تاریخ تولد:</msg-lang>
+        <msg-lang lang="en">Birth Date:</msg-lang>
+    </message>
+    <message id="PersonalCode">
+        <msg-lang lang="fa">کد پرسنلی:</msg-lang>
+        <msg-lang lang="en">Personal Code:</msg-lang>
+    </message>
+    <message id="BirthCity">
+        <msg-lang lang="fa">شهر محل تولد</msg-lang>
+        <msg-lang lang="en">Birth City:</msg-lang>
+    </message>
+    <message id="EmployDate">
+        <msg-lang lang="fa">تاریخ استخدام:</msg-lang>
+        <msg-lang lang="en">Employ Date:</msg-lang>
+    </message>
+    <message id="Province">
+        <msg-lang lang="fa">استان:</msg-lang>
+        <msg-lang lang="en">Province:</msg-lang>
+    </message>
+    <message id="Branch">
+        <msg-lang lang="fa">شعبه:</msg-lang>
+        <msg-lang lang="en">Branch:</msg-lang>
+    </message>
+    <message id="DeActive">
+        <msg-lang lang="fa">غیرفعال</msg-lang>
+        <msg-lang lang="en">Inactive:</msg-lang>
+    </message>
+    <message id="Active">
+        <msg-lang lang="fa">فعال</msg-lang>
+        <msg-lang lang="en">Active:</msg-lang>
+    </message>
+    <message id="Status">
+        <msg-lang lang="fa">وضعیت:</msg-lang>
+        <msg-lang lang="en">Status:</msg-lang>
+    </message>
+    <message id="InternalHistory">
+        <msg-lang lang="fa">سوابق درون سازمان:</msg-lang>
+        <msg-lang lang="en">Internal History:</msg-lang>
+    </message>
+    <message id="ExternalHistory">
+        <msg-lang lang="fa">سوابق بیرون سزمان:</msg-lang>
+        <msg-lang lang="en">External History:</msg-lang>
+    </message>
+    <message id="EducationUni">
+        <msg-lang lang="fa">محل تحصیل:</msg-lang>
+        <msg-lang lang="en">School:</msg-lang>
+    </message>
+    <message id="EducationField">
+        <msg-lang lang="fa">رشته تحصیلی:</msg-lang>
+        <msg-lang lang="en">Education Field:</msg-lang>
+    </message>
+    <message id="EducationDegree">
+        <msg-lang lang="fa">مدرک تحصیلی:</msg-lang>
+        <msg-lang lang="en">Education:</msg-lang>
+    </message>
+    <message id="OfficialPosition">
+        <msg-lang lang="fa">جایگاه سازمانی:</msg-lang>
+        <msg-lang lang="en">Official Position:</msg-lang>
+    </message>
+    <message id="Categories">
+        <msg-lang lang="fa">دسته ها</msg-lang>
+        <msg-lang lang="en">Categories</msg-lang>
+    </message>
+    <message id="Elections">
+        <msg-lang lang="fa">انتخابات ها</msg-lang>
+        <msg-lang lang="en">Elections</msg-lang>
+    </message>
+    <message id="Users">
+        <msg-lang lang="fa">کاربران</msg-lang>
+        <msg-lang lang="en">Users</msg-lang>
+    </message>
+    <message id="Home">
+        <msg-lang lang="fa">خانه</msg-lang>
+        <msg-lang lang="en">Home</msg-lang>
+    </message>
+    <message id="UploadUsersFile">
+        <msg-lang lang="fa">فایل کاربران را بارگذاری کنید:</msg-lang>
+        <msg-lang lang="en">Upload Users File</msg-lang>
+    </message>
+    <message id="Username">
+        <msg-lang lang="fa">نام کاربری</msg-lang>
+        <msg-lang lang="en">Username</msg-lang>
+    </message>
+    <message id="Password">
+        <msg-lang lang="fa">کلمه عبور</msg-lang>
+        <msg-lang lang="en">Upload Users File</msg-lang>
+    </message>
+    <message id="Role">
+        <msg-lang lang="fa">نقش</msg-lang>
+        <msg-lang lang="en">Role</msg-lang>
+    </message>
+    <message id="Admin">
+        <msg-lang lang="fa">ادمین</msg-lang>
+        <msg-lang lang="en">Admin</msg-lang>
+    </message>
+    <message id="Voter">
+        <msg-lang lang="fa">رای دهنده</msg-lang>
+        <msg-lang lang="en">Voter</msg-lang>
+    </message>
+    <message id="Search">
+        <msg-lang lang="fa">جستجو...</msg-lang>
+        <msg-lang lang="en">Search...</msg-lang>
+    </message>
+    <message id="SelectElection">
+        <msg-lang lang="fa">شرکت در انتخابات: </msg-lang>
+        <msg-lang lang="en">Vote in election:</msg-lang>
+    </message>
+    <message id="YouHadVoted">
+        <msg-lang lang="fa">رای شما در این انتخابات ثبت گردیده است</msg-lang>
+        <msg-lang lang="en">You had voted</msg-lang>
+    </message>
+    <message id="YouDonthavePermission">
+        <msg-lang lang="fa">شما مجاز به شرکت در این انتخابات نیستید</msg-lang>
+        <msg-lang lang="en">You dont have permission</msg-lang>
+    </message>
+    <message id="SubmitVote">
+        <msg-lang lang="fa">ثبت رای</msg-lang>
+        <msg-lang lang="en">Submit Vote</msg-lang>
+    </message>
+
+</messages>

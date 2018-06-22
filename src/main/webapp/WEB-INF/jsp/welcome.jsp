@@ -20,18 +20,20 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
     <%@include file='header.jsp'%>
 
 	<div class="container">
+        <% if(!isAdmin(request)) { %>
+            <div class="starter-template">
+                <h1>${messages.getMessage("SelectElection",lang)}</h1>
+            </div>
+            <c:forEach items="${elections}" var="election">
+                <a href="/vote?election=${election.id}">${election.name}</a><br/>
+            </c:forEach>
 
-		<div class="starter-template">
-			<h1>Select:</h1>
-		</div>
-		<c:forEach items="${elections}" var="election">
-            <a href="/vote?election=${election.id}">${election.name}</a><br/>
-        </c:forEach>
+        <% }  %>
 
 	</div>
 

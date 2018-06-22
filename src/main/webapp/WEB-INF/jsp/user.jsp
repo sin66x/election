@@ -20,7 +20,7 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
 	    <%@include file='header.jsp'%>
 
@@ -28,36 +28,37 @@
         <form:form action="user" method="POST" modelAttribute="user">
             <form:input name="id" id="id" path="id" type="hidden"/>
 
-            <label>Insert User Name:</label>
+            <label>${messages.getMessage("Username",lang)}</label>
             <form:input name="username" id="username" path="username" />
-            <label>Insert Password:</label>
+            <label>${messages.getMessage("Password",lang)}</label>
             <form:input name="password" id="password" path="password" />
-            <label>Select Role:</label>
+            <label>${messages.getMessage("Role",lang)}</label>
             <form:select id="role" path="role">
-                <option value="ROLE_admin">Admin</option>
-                <option value="ROLE_user">Voter</option>
+                <option value="ROLE_admin">${messages.getMessage("Admin",lang)}</option>
+                <option value="ROLE_user">${messages.getMessage("Voter",lang)}</option>
             </form:select>
+            ${messages.getMessage("Status",lang)}
             <form:select id="isActive" path="isActive">
-                <option value="true">True</option>
-                <option value="false">False</option>
+                <option value="true">${messages.getMessage("Active",lang)}</option>
+                <option value="false">${messages.getMessage("DeActive",lang)}</option>
             </form:select>
-            <button type="submit" value="Submit">Submit</button>
-            <button id="clear">clear</button>
+            <button type="submit" value="Submit">${messages.getMessage("Submit",lang)}</button>
+            <button id="clear">${messages.getMessage("Clear",lang)}</button>
         </form:form>
-        <input type="text" id="myInput" onkeyup="filterTable(2)" placeholder="Filter"/>
+        <input type="text" id="myInput" onkeyup="filterTable(2)" placeholder='${messages.getMessage("Search",lang)}'/>
        <table id="myTable">
           <tr class="header">
-                 <th style="width:40%;">Username</th>
-                 <th style="width:30%;">Edit</th>
-                 <th style="width:30%;">Remove</th>
+                 <th style="width:40%;">${messages.getMessage("Username",lang)}</th>
+                 <th style="width:30%;">${messages.getMessage("Edit",lang)}</th>
+                 <th style="width:30%;">${messages.getMessage("Remove",lang)}</th>
           </tr>
             <c:forEach items="${users}" var="selected_user">
               <tr>
                   <td>${selected_user.username}</td>
                   <td>${selected_user.isActive}</td>
                   <td>${selected_user.password}</td>
-                  <td><button id="editBtn${selected_user.id}" name="editBtn${selected_user.id}" value="${selected_user.id}">Edit</button></td>
-                  <td><button id="removeBtn${selected_user.id}" name="removeBtn${selected_user.id}" value="${selected_user.id}">Remove</button></td>
+                  <td><button id="editBtn${selected_user.id}" name="editBtn${selected_user.id}" value="${selected_user.id}">${messages.getMessage("Edit",lang)}</button></td>
+                  <td><button id="removeBtn${selected_user.id}" name="removeBtn${selected_user.id}" value="${selected_user.id}">${messages.getMessage("Remove",lang)}</button></td>
               </tr>
            </c:forEach>
         </table>

@@ -1,11 +1,13 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Category;
 import com.rqbank.eelection.domain.Election;
 import com.rqbank.eelection.model.CategoryDTO;
 import com.rqbank.eelection.model.ElectionDTO;
 import com.rqbank.eelection.service.CategoryService;
 import com.rqbank.eelection.service.ElectionService;
+import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -23,11 +25,17 @@ public class ElectionController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    Pair langPair;
+
     @RequestMapping(value = "/election", method = RequestMethod.GET)
     public String loadPage(Model model) {
         model.addAttribute("electionDTO", new ElectionDTO());
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("elections", electionService.getAllActives());
+        model.addAttribute("messages", Messages.getInst());
+        model.addAttribute("lang", langPair.name);
+        model.addAttribute("langDir", langPair.value);
         return "election";
     }
 

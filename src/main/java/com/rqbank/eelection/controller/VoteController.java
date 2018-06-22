@@ -1,9 +1,13 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Candidate;
+import com.rqbank.eelection.exception.BadVoteException;
 import com.rqbank.eelection.model.CandidateDTO;
 import com.rqbank.eelection.service.CandidateService;
+import com.rqbank.eelection.service.ElectionService;
 import com.rqbank.eelection.service.VoteService;
+import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -13,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Controller
 public class VoteController {
@@ -20,7 +25,13 @@ public class VoteController {
     VoteService voteService;
 
     @Autowired
+    ElectionService electionService;
+
+    @Autowired
     CandidateService candidateService;
+
+    @Autowired
+    Pair langPair;
 
     @PreAuthorize("hasRole('user')")
     @RequestMapping(value = "/vote", method = RequestMethod.GET)
@@ -28,14 +39,17 @@ public class VoteController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         if(voteService.hadVoted(username,electionId))
-            model.addAttribute("message", "You Had Voted");
+            model.addAttribute("message", Messages.getMessage("YouHadVoted","fa"));
         if(!voteService.hadRight(username,electionId))
-            model.addAttribute("message", "You Dont have Permission");
+            model.addAttribute("message", Messages.getMessage("YouDonthavePermission","fa"));
 
         List<Candidate> candidates = candidateService.findCandidateByElection(electionId);
         model.addAttribute("candidates", candidates);
         model.addAttribute("electionId", electionId);
         model.addAttribute("maxSelection", candidates.get(0).getElection().getMaxSelection());
+        model.addAttribute("messages", Messages.getInst());
+        model.addAttribute("lang", langPair.name);
+        model.addAttribute("langDir", langPair.value);
 
         return "vote";
     }
@@ -45,8 +59,11 @@ public class VoteController {
     public String vote(@RequestParam String votes, @RequestParam String electionId) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
-        if(voteService.hadVoted(username,electionId)||!voteService.hadRight(username,electionId))
-            return "redirect:vote?election="+electionId;
+        if(voteService.hadVoted(username,electionId)||!voteService.hadRight(username,electionId)||(votes.split("-").length-1)>=electionService.findById(electionId).getMaxSelection())
+        {
+//            return "redirect:vote?election="+electionId;
+            throw new BadVoteException();
+        }
         voteService.vote(username,electionId,votes.split("-"));
         return "welcome";
     }
