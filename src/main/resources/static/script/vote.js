@@ -50,6 +50,3 @@ function isBelowMax(){
     else
         return true;
 }
-
-
-}

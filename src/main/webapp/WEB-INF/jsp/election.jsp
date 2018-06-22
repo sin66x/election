@@ -21,7 +21,7 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
     <%@include file='header.jsp'%>
 
@@ -30,15 +30,15 @@
         <form:form action="election" method="POST" modelAttribute="electionDTO">
             <form:input name="id" id="id" path="id" type="hidden"/>
 
-            Name:
+            ${messages.getMessage("Name",lang)}
             <form:input name="name" id="name" path="name" />
 
-            MaxSelection:
+            ${messages.getMessage("MaxSelection",lang)}
             <form:input name="maxSelection" id="maxSelection" path="maxSelection" />
             <br/>
 
-            Start<br/>
-            date:
+            ${messages.getMessage("Start",lang)}<br/>
+            ${messages.getMessage("Date",lang)}<br/>
             <select class="input_date" id="startDay">
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -95,8 +95,8 @@
                 <option value="1400">۱۴۰۰</option>
             </select>
 
-            <br/>End<br/>
-            date:
+            <br/>${messages.getMessage("End",lang)}<br/>
+            ${messages.getMessage("Date",lang)}
             <select class="input_date" id="endDay">
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -154,15 +154,16 @@
             </select>
 
             <br/>
+
             <form:select id="category" path="category">
-                <option value="0">NONE</option>
+                <option value="0">${messages.getMessage("SelectOne",lang)}</option>
                 <c:forEach items="${categories}" var="cat">
                     <option value="${cat.id}">${cat.name}</option>
                 </c:forEach>
             </form:select>
 
-            <button type="submit" value="Submit" >Submit</button>
-            <button id="clear" type="button">Clear</button>
+            <button type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
+            <button id="clear" type="button">${messages.getMessage("Clear",lang)}</button>
 
             <form:input type="hidden" id="startDate" path="startDate" name="startDate"/>
             <form:input type="hidden" id="endDate" path="endDate" name="endDate"/>
@@ -171,10 +172,10 @@
 
         <c:forEach items="${elections}" var="election">
              ${election.name} - ${election.jalaliStartDate} - ${election.jalaliEndDate}
-             <button type="button" id="editBtn${election.id}" name="editBtn${election.id}" value="${election.id}">Edit</button>
-             <button type="button" id="removeBtn${election.id}" name="removeBtn${election.id}" value="${election.id}">Remove</button>
-             <a href="candidate?election=${election.id}">Candidates</a>
-             <a href="uploadVoter?election=${election.id}">Voters</a>
+             <button type="button" id="editBtn${election.id}" name="editBtn${election.id}" value="${election.id}">${messages.getMessage("Edit",lang)}</button>
+             <button type="button" id="removeBtn${election.id}" name="removeBtn${election.id}" value="${election.id}">${messages.getMessage("Remove",lang)}</button>
+             <a href="candidate?election=${election.id}">${messages.getMessage("Candidates",lang)}</a>
+             <a href="uploadVoter?election=${election.id}">${messages.getMessage("Voters",lang)}</a>
             <br/>
         </c:forEach>
 

@@ -1,8 +1,10 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Category;
 import com.rqbank.eelection.model.CategoryDTO;
 import com.rqbank.eelection.service.CategoryService;
+import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -17,11 +19,17 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    Pair langPair;
+
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public String loadPage(Model model) {
         model.addAttribute("categoryDTO", new CategoryDTO());
         model.addAttribute("parents", categoryService.getAll());
+        model.addAttribute("messages", Messages.getInst());
+        model.addAttribute("lang", langPair.name);
+        model.addAttribute("langDir", langPair.value);
         return "category";
     }
 

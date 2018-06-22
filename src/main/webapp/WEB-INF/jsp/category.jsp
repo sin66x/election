@@ -20,7 +20,7 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
 	    <%@include file='header.jsp'%>
 
@@ -28,23 +28,23 @@
         <form:form action="category" method="POST" modelAttribute="categoryDTO">
             <form:input name="id" id="id" path="id" type="hidden"/>
 
-            <label>Insert Category Name:</label>
+            <label>${messages.getMessage("InsertCatName",lang)}</label>
             <form:input name="name" id="name" path="name" />
-            <label>Select Parent:</label>
+            <label>${messages.getMessage("SelectParent",lang)}</label>
             <form:select id="parent" path="parent">
-                <option value="0">NONE</option>
+                <option value="0">${messages.getMessage("SelectOne",lang)}</option>
                 <c:forEach items="${parents}" var="category">
-                <option value="${category.id}">${category.name}-${category.id}</option>
+                    <option value="${category.id}">${category.name}</option>
                 </c:forEach>
             </form:select>
-            <button type="submit" value="Submit">Submit</button>
-            <button type="button" id="clear">clear</button>
+            <button type="submit" value="Submit">${messages.getMessage("Submit",lang)}</button>
+            <button type="button" id="clear">${messages.getMessage("Clear",lang)}</button>
         </form:form>
 
         <c:forEach items="${parents}" var="category">
              ${category.name} - ${category.createdDate} -
-             <button id="editBtn${category.id}" name="editBtn${category.id}" value="${category.id}">Edit</button>
-             <button id="removeBtn${category.id}" name="removeBtn${category.id}" value="${category.id}">Remove</button>
+             <button id="editBtn${category.id}" name="editBtn${category.id}" value="${category.id}">${messages.getMessage("Edit",lang)}</button>
+             <button id="removeBtn${category.id}" name="removeBtn${category.id}" value="${category.id}">${messages.getMessage("Remove",lang)}</button>
             <br/>
 
         </c:forEach>

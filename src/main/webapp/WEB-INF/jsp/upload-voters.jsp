@@ -21,7 +21,7 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
     <%@include file='header.jsp'%>
 
@@ -29,12 +29,13 @@
 	<div class="container" >
 
 <form method="POST" enctype="multipart/form-data" action="electionUpload?${_csrf.parameterName}=${_csrf.token}">
+    ${messages.getMessage("UploadUsersFile",lang)}
     <form:input type="file" name="file" path="file"/>
     <form:input type="hidden" name="electionId" path="electionId" value="${electionId}"/>
-    <button type="submit" value="Submit" >Submit</button>
+    <button type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
 </form>
 
-        <input type="text" id="myInput" onkeyup="filterTable(0)" placeholder="Filter"/>
+        <input type="text" id="myInput" onkeyup="filterTable(0)" placeholder='${messages.getMessage("Search",lang)}'/>
         <table id="myTable">
           <tr class="header">
                  <th style="width:40%;">Username</th>

@@ -20,7 +20,7 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body>
+<body dir="${langDir}">
 
     <%@include file='header.jsp'%>
 
@@ -28,16 +28,11 @@
 
             ${message}
             <c:if test='${"".equals(message)||message==null}'>
-                <input  id="maxSelection" name="maxSelection" value="${maxSelection}" />
-                <input  id="electionId" name="electionId" value="${electionId}" />
-                <input type="text" id="myInput" onkeyup="filterTable(1)" placeholder="Search for names.."/>
+                <input  type="hidden" id="maxSelection" name="maxSelection" value="${maxSelection}" />
+                <input  type="hidden" id="electionId" name="electionId" value="${electionId}" />
+                <input type="text" id="myInput" onkeyup="filterTable(1)" placeholder='${messages.getMessage("Search",lang)}'/>
 
                 <table id="myTable">
-                  <tr class="header">
-                    <th style="width:30%;">FirstName</th>
-                    <th style="width:40%;">LastName</th>
-                    <th style="width:30%;">Action</th>
-                  </tr>
                   <c:forEach items="${candidates}" var="candidate">
                         <tr>
                           <td>${candidate.firstName}</td>
@@ -46,7 +41,7 @@
                         </tr>
                   </c:forEach>
                 </table>
-                <button type="button" id="vote" name="vote" value="vote">Vote</button>
+                <button type="button" id="vote" name="vote" value="vote">${messages.getMessage("SubmitVote",lang)}</button>
             </c:if>
 
 

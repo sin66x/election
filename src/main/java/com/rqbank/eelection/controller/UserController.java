@@ -1,10 +1,12 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Candidate;
 import com.rqbank.eelection.domain.User;
 import com.rqbank.eelection.model.CandidateDTO;
 import com.rqbank.eelection.service.CandidateService;
 import com.rqbank.eelection.service.UserService;
+import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -16,12 +18,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    Pair langPair;
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String loadPage(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("users", userService.findAll());
+        model.addAttribute("messages", Messages.getInst());
+        model.addAttribute("lang", langPair.name);
+        model.addAttribute("langDir", langPair.value);
         return "user";
     }
     @PreAuthorize("hasRole('admin')")
