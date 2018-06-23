@@ -1,5 +1,6 @@
 package com.rqbank.eelection.controller;
 
+import com.rqbank.eelection.config.msgloader.Message;
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Category;
 import com.rqbank.eelection.model.CategoryDTO;
@@ -24,20 +25,30 @@ public class CategoryController {
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public String loadPage(Model model) {
+    public String loadPage(Model model,@RequestParam(value = "error",required = false) String errorMessage) {
         model.addAttribute("categoryDTO", new CategoryDTO());
         model.addAttribute("parents", categoryService.getAll());
         model.addAttribute("messages", Messages.getInst());
         model.addAttribute("lang", langPair.name);
         model.addAttribute("langDir", langPair.value);
+        if (!"".equals(errorMessage)&& errorMessage!=null)
+            model.addAttribute("errorMessage", Messages.getMessage(errorMessage,langPair.name));
+        else
+            model.addAttribute("errorMessage", "");
         return "category";
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/category", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("categoryDTO") CategoryDTO categoryDTO) {
-        categoryService.save(categoryDTO);
-        return "redirect:category";
+        String errorMessage = checkValidator(categoryDTO);
+        if ("".equals(errorMessage)) {
+            categoryService.save(categoryDTO);
+            return "redirect:category";
+        }
+        else {
+            return "redirect:category?error="+errorMessage;
+        }
     }
 
     @PreAuthorize("hasRole('admin')")
@@ -55,5 +66,9 @@ public class CategoryController {
         return "category";
     }
 
-
+    private String checkValidator(CategoryDTO categoryDTO){
+        if ("".equals(categoryDTO.getName()))
+            return "InsertCatName";
+        return "";
+    }
 }

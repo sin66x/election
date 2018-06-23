@@ -29,6 +29,7 @@
 	<div class="container" >
 
 <form method="POST" enctype="multipart/form-data" action="electionUpload?${_csrf.parameterName}=${_csrf.token}">
+    ${errorMessage}
     ${messages.getMessage("UploadUsersFile",lang)}
     <form:input type="file" name="file" path="file"/>
     <form:input type="hidden" name="electionId" path="electionId" value="${electionId}"/>

@@ -28,6 +28,8 @@
 
 	<div class="container" >
         <form:form action="election" method="POST" modelAttribute="electionDTO">
+            ${errorMessage}
+
             <form:input name="id" id="id" path="id" type="hidden"/>
 
             ${messages.getMessage("Name",lang)}

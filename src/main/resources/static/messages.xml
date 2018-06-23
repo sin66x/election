@@ -191,5 +191,44 @@
         <msg-lang lang="fa">ثبت رای</msg-lang>
         <msg-lang lang="en">Submit Vote</msg-lang>
     </message>
+    <message id="FillAllFields">
+        <msg-lang lang="fa">لطفا همه مقادیر را پر کنید</msg-lang>
+        <msg-lang lang="en">Please fill all the fields</msg-lang>
+    </message>
+    <message id="EmployDateInFormat">
+        <msg-lang lang="fa">تاریخ استخدام باید در فرمت yyyy/mm/dd وارد شود</msg-lang>
+        <msg-lang lang="en">Employ date should be in yyyy/mm/dd format</msg-lang>
+    </message>
+    <message id="BirthDateInFormat">
+        <msg-lang lang="fa">تاریخ تولد باید در فرمت yyyy/mm/dd وارد شود</msg-lang>
+        <msg-lang lang="en">Birth date should be in yyyy/mm/dd format</msg-lang>
+    </message>
+    <message id="InsertName">
+        <msg-lang lang="fa">لطفا نام را وارد کنید</msg-lang>
+        <msg-lang lang="en">Please enter name</msg-lang>
+    </message>
+    <message id="AtLeastOneCandidate">
+        <msg-lang lang="fa">حداقل یک کاندید باید قابل انتخاب باشد</msg-lang>
+        <msg-lang lang="en">Max Selectable should be at least 1</msg-lang>
+    </message>
+
+    <message id="InsertUsername">
+        <msg-lang lang="fa">نام کاربری را وارد کنید</msg-lang>
+        <msg-lang lang="en">Please enter username</msg-lang>
+    </message>
+    <message id="InsertPassword">
+        <msg-lang lang="fa">کلمه عبور را وارد کنید</msg-lang>
+        <msg-lang lang="en">Please enter password</msg-lang>
+    </message>
+    <message id="BadFileFormat">
+        <msg-lang lang="fa">فرمت فایل صحیح نیست</msg-lang>
+        <msg-lang lang="en">Bad File Format</msg-lang>
+    </message>
+
+
+
+
+
+
 
 </messages>

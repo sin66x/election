@@ -26,6 +26,7 @@
 
 	<div class="container">
         <form:form action="user" method="POST" modelAttribute="user">
+            ${errorMessage}
             <form:input name="id" id="id" path="id" type="hidden"/>
 
             <label>${messages.getMessage("Username",lang)}</label>
