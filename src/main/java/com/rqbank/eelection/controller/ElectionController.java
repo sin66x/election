@@ -29,21 +29,42 @@ public class ElectionController {
     Pair langPair;
 
     @RequestMapping(value = "/election", method = RequestMethod.GET)
-    public String loadPage(Model model) {
-        model.addAttribute("electionDTO", new ElectionDTO());
+    public String loadPage(Model model,@RequestParam(value = "error",required = false) String errorMessage) {
+        ElectionDTO electionDTO = new ElectionDTO();
+        electionDTO.setMaxSelection(1);
+        model.addAttribute("electionDTO", electionDTO);
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("elections", electionService.getAllActives());
         model.addAttribute("messages", Messages.getInst());
         model.addAttribute("lang", langPair.name);
         model.addAttribute("langDir", langPair.value);
+        if (!"".equals(errorMessage)&& errorMessage!=null)
+            model.addAttribute("errorMessage", Messages.getMessage(errorMessage,langPair.name));
+        else
+            model.addAttribute("errorMessage", "");
         return "election";
     }
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/election", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("electionDTO") ElectionDTO electionDTO) {
-        electionService.save(electionDTO);
-        return "redirect:election";
+        String errorMessage = checkValidator(electionDTO);
+        if ("".equals(errorMessage)) {
+            electionService.save(electionDTO);
+            return "redirect:election";
+        }
+        else {
+            return "redirect:election?error="+errorMessage;
+        }
+
+    }
+
+    private String checkValidator(ElectionDTO electionDTO) {
+        if ("".equals(electionDTO.getName()))
+            return "InsertName";
+        if (electionDTO.getMaxSelection()<=0)
+            return "AtLeastOneCandidate";
+        return "";
     }
 
     @PreAuthorize("hasRole('admin')")

@@ -6,6 +6,7 @@ import com.rqbank.eelection.domain.Election;
 import com.rqbank.eelection.model.CandidateDTO;
 import com.rqbank.eelection.model.ElectionDTO;
 import com.rqbank.eelection.service.CandidateService;
+import com.rqbank.eelection.util.date.mDate;
 import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,22 +24,31 @@ public class CandidateController {
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/candidate", method = RequestMethod.GET)
-    public String loadPage(Model model, @RequestParam("election") String electionId) {
-
+    public String loadPage(Model model, @RequestParam("election") String electionId,@RequestParam(value = "error",required = false) String errorMessage) {
         CandidateDTO candidateDTO = new CandidateDTO();
+
         candidateDTO.setElection(Integer.parseInt(electionId));
         model.addAttribute("candidateDTO", candidateDTO);
         model.addAttribute("candidates", candidateService.findCandidateByElection(electionId));
         model.addAttribute("messages", Messages.getInst());
         model.addAttribute("lang", langPair.name);
         model.addAttribute("langDir", langPair.value);
+        if (!"".equals(errorMessage)&& errorMessage!=null)
+            model.addAttribute("errorMessage", Messages.getMessage(errorMessage,langPair.name));
+        else
+            model.addAttribute("errorMessage", "");
+
         return "candidate";
     }
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/candidate", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("candidateDTO") CandidateDTO candidateDTO) {
-        candidateService.save(candidateDTO);
-        return "redirect:candidate?election="+candidateDTO.getElection();
+        String errorMessage = checkValidator(candidateDTO);
+        if ("".equals(errorMessage)) {
+            candidateService.save(candidateDTO);
+            return "redirect:candidate?election="+candidateDTO.getElection();
+        }
+        return "redirect:candidate?election="+candidateDTO.getElection()+"&error="+errorMessage;
     }
 
     @RequestMapping(value = "/candidateRemove", method = RequestMethod.GET)
@@ -54,5 +64,39 @@ public class CandidateController {
     CandidateDTO edit(@RequestParam("editId") String id) {
         Candidate editingCand = candidateService.findById(id);
         return new CandidateDTO(editingCand);
+    }
+
+    private String checkValidator(CandidateDTO candidateDTO) {
+        if(
+                "".equals(candidateDTO.getFirstName()) ||
+                "".equals(candidateDTO.getLastName()) ||
+                "".equals(candidateDTO.getFatherName()) ||
+                "".equals(candidateDTO.getBirthCity()) ||
+                "".equals(candidateDTO.getEducationDegree()) ||
+                "".equals(candidateDTO.getEducationField()) ||
+                "".equals(candidateDTO.getEducationUni()) ||
+                "".equals(candidateDTO.getExternalHistory()) ||
+                "".equals(candidateDTO.getInternalHistory()) ||
+                "".equals(candidateDTO.getOfficialPosition()) ||
+                "".equals(candidateDTO.getPersonalCode()) ||
+                "".equals(candidateDTO.getEmployDate()) ||
+                "".equals(candidateDTO.getProvinceCode())
+                )
+            return "FillAllFields";
+        try{
+            mDate.parse("yyyy/mm/dd",candidateDTO.getBirthdate());
+        }
+        catch (Exception e){
+            candidateDTO.setBirthdate("");
+            return "BirthDateInFormat";
+        }
+        try{
+            mDate.parse("yyyy/mm/dd",candidateDTO.getEmployDate());
+        }
+        catch (Exception e){
+            candidateDTO.setEmployDate("");
+            return "EmployDateInFormat";
+        }
+        return "";
     }
 }

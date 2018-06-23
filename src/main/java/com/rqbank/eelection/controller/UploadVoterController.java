@@ -29,13 +29,17 @@ public class UploadVoterController {
     Pair langPair;
 
     @RequestMapping(value = "/uploadVoter", method = RequestMethod.GET)
-    public String loadPage(Model model, @RequestParam("election") String electionId) {
+    public String loadPage(Model model, @RequestParam("election") String electionId,@RequestParam(value = "error",required = false) String errorMessage) {
         model.addAttribute("file", new MyModelAttribute());
         model.addAttribute("electionId", electionId);
         model.addAttribute("users",userService.findUsersForElection(electionId));
         model.addAttribute("messages", Messages.getInst());
         model.addAttribute("lang", langPair.name);
         model.addAttribute("langDir", langPair.value);
+        if (!"".equals(errorMessage)&& errorMessage!=null)
+            model.addAttribute("errorMessage", Messages.getMessage(errorMessage,langPair.name));
+        else
+            model.addAttribute("errorMessage", "");
         return "upload-voters";
     }
 
@@ -54,13 +58,12 @@ public class UploadVoterController {
             }
             reader.close();
 
-            userService.createUsersForElection(users,electionId);
-
+            userService.createUsersForElection(users, electionId);
             return "redirect:/";
         }
         catch (Exception e){
             e.printStackTrace();
-            return "redirect:uploadVoter";
+            return "redirect:uploadVoter?election="+electionId+"&error=BadFileFormat";
         }
     }
 

@@ -3,7 +3,7 @@ $(document).ready(function(){
      makeEndDate();
      $("#clear").click(function() {
                 $("#name").val("");
-                $("#maxSelection").val("");
+                $("#maxSelection").val(1);
                 $("#category").val(0);
                 $("#id").val(0);
          });

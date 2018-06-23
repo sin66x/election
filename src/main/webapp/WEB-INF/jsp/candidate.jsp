@@ -26,6 +26,7 @@
 
 	<div class="container">
         <form:form action="candidate" method="POST" modelAttribute="candidateDTO">
+            ${errorMessage}
             <form:input type="hidden" id="id" name="id" path="id"/><br/>
             ${messages.getMessage("Name",lang)}	<form:input type="text" id="firstName" name="firstName" path="firstName"/><br/>
             ${messages.getMessage("LastName",lang)}	<form:input type="text" id="lastName" name="lastName" path="lastName"/><br/>

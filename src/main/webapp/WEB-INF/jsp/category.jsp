@@ -26,6 +26,7 @@
 
 	<div class="container">
         <form:form action="category" method="POST" modelAttribute="categoryDTO">
+            ${errorMessage}
             <form:input name="id" id="id" path="id" type="hidden"/>
 
             <label>${messages.getMessage("InsertCatName",lang)}</label>
@@ -37,7 +38,7 @@
                     <option value="${category.id}">${category.name}</option>
                 </c:forEach>
             </form:select>
-            <button type="submit" value="Submit">${messages.getMessage("Submit",lang)}</button>
+            <button id="submit" value="Submit">${messages.getMessage("Submit",lang)}</button>
             <button type="button" id="clear">${messages.getMessage("Clear",lang)}</button>
         </form:form>
 
