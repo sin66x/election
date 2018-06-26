@@ -51,6 +51,7 @@ public class CandidateController {
         return "redirect:candidate?election="+candidateDTO.getElection()+"&error="+errorMessage;
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/candidateRemove", method = RequestMethod.GET)
     public @ResponseBody
     String remove(@RequestParam("removeId") String id) {

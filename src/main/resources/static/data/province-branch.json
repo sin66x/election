@@ -1,0 +1,34 @@
+{
+  "provinces" : [
+    {
+      "code" : "1" ,
+      "name" : "Tehran",
+      "branches" : [
+        {"code":"1","name":"branch1"},
+        {"code":"2","name":"branch2"},
+        {"code":"3","name":"branch3"},
+        {"code":"4","name":"branch4"}
+      ]
+    },
+    {
+      "code" : "4" ,
+      "name" : "Khouzestan",
+      "branches" : [
+        {"code":"1","name":"branch1"},
+        {"code":"2","name":"branch2"},
+        {"code":"3","name":"branch3"},
+        {"code":"4","name":"branch4"}
+      ]
+    },
+    {
+      "code" : "3" ,
+      "name" : "Mazandaran",
+      "branches" : [
+        {"code":"1","name":"branch1"},
+        {"code":"2","name":"branch2"},
+        {"code":"3","name":"branch3"},
+        {"code":"4","name":"branch4"}
+      ]
+    }
+  ]
+}

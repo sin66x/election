@@ -26,13 +26,27 @@
 
 	<div class="container">
         <% if(!isAdmin(request)) { %>
+        <div class="election_list_panel">
             <div class="starter-template">
                 <h1>${messages.getMessage("SelectElection",lang)}</h1>
             </div>
-            <c:forEach items="${elections}" var="election">
-                <a href="/vote?election=${election.id}">${election.name}</a><br/>
-            </c:forEach>
+            <table width="100%">
+                <tr>
+                    <th class="th_voting_elections">${messages.getMessage("Elections",lang)}</th>
+                    <th class="th_voting_elections">${messages.getMessage("StartDate",lang)}</th>
+                    <th class="th_voting_elections">${messages.getMessage("EndDate",lang)}</th>
+                </tr>
 
+                <c:forEach items="${elections}" var="election">
+                    <tr>
+                        <td><a href="/vote?election=${election.id}">${election.name}</a></td>
+                        <td>${election.jalaliStartDate}</td>
+                        <td>${election.jalaliEndDate}</td>
+                    </tr>
+                </c:forEach>
+
+            <table>
+        </div>
         <% }  %>
 
 	</div>

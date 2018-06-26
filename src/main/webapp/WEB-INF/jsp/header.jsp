@@ -40,6 +40,8 @@ public boolean isAdmin(ServletRequest request) {
         </div>
     </div>
     <form:form action="${pageContext.request.contextPath}/logout" method="POST">
-        <li><button type="submit" value="Logout">${messages.getMessage("Logout",lang)}</button></li>
+    <ul class="nav navbar-nav">
+        <li><button class="logout" type="submit" value="Logout">${messages.getMessage("Logout",lang)}</button></li>
+     </ul>
     </form:form>
 </nav>

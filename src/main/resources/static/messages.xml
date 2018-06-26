@@ -104,8 +104,8 @@
         <msg-lang lang="en">Active:</msg-lang>
     </message>
     <message id="Status">
-        <msg-lang lang="fa">وضعیت:</msg-lang>
-        <msg-lang lang="en">Status:</msg-lang>
+        <msg-lang lang="fa">وضعیت</msg-lang>
+        <msg-lang lang="en">Status</msg-lang>
     </message>
     <message id="InternalHistory">
         <msg-lang lang="fa">سوابق درون سازمان:</msg-lang>
@@ -176,7 +176,7 @@
         <msg-lang lang="en">Search...</msg-lang>
     </message>
     <message id="SelectElection">
-        <msg-lang lang="fa">شرکت در انتخابات: </msg-lang>
+        <msg-lang lang="fa">انتخابات های در حال اجرا</msg-lang>
         <msg-lang lang="en">Vote in election:</msg-lang>
     </message>
     <message id="YouHadVoted">
@@ -224,11 +224,78 @@
         <msg-lang lang="fa">فرمت فایل صحیح نیست</msg-lang>
         <msg-lang lang="en">Bad File Format</msg-lang>
     </message>
-
-
-
-
-
+    <message id="OfficialPositionHeader">
+        <msg-lang lang="fa">جایگاه سازمانی</msg-lang>
+        <msg-lang lang="en">Official Position</msg-lang>
+    </message>
+    <message id="EmployDateHeader">
+        <msg-lang lang="fa">تاریخ استخدام</msg-lang>
+        <msg-lang lang="en">Employ Date</msg-lang>
+    </message>
+    <message id="BirthCityHeader">
+        <msg-lang lang="fa">محل تولد</msg-lang>
+        <msg-lang lang="en">Birth City</msg-lang>
+    </message>
+    <message id="PersonalCodeHeader">
+        <msg-lang lang="fa">کد پرسنلی</msg-lang>
+        <msg-lang lang="en">Personal Code</msg-lang>
+    </message>
+    <message id="BirthdateHeader">
+        <msg-lang lang="fa">تاریخ تولد</msg-lang>
+        <msg-lang lang="en">Birthdate</msg-lang>
+    </message>
+    <message id="FatherNameHeader">
+        <msg-lang lang="fa">نام پدر</msg-lang>
+        <msg-lang lang="en">Father Name</msg-lang>
+    </message>
+    <message id="LastNameHeader">
+        <msg-lang lang="fa">نام خانوادگی</msg-lang>
+        <msg-lang lang="en">Last Name</msg-lang>
+    </message>
+    <message id="FirstNameHeader">
+        <msg-lang lang="fa">نام</msg-lang>
+        <msg-lang lang="en">First Name</msg-lang>
+    </message>
+    <message id="CandidateCodeHeader">
+        <msg-lang lang="fa">کد نامزد</msg-lang>
+        <msg-lang lang="en">Candidate Code</msg-lang>
+    </message>
+    <message id="EducationUniHeader">
+        <msg-lang lang="fa">محل تحصیل</msg-lang>
+        <msg-lang lang="en">Education Uni</msg-lang>
+    </message>
+    <message id="EducationFieldHeader">
+        <msg-lang lang="fa">رشته تحصیلی</msg-lang>
+        <msg-lang lang="en">Education Field</msg-lang>
+    </message>
+    <message id="StartDate">
+        <msg-lang lang="fa">تاریخ شروع</msg-lang>
+        <msg-lang lang="en">Start Date</msg-lang>
+    </message>
+    <message id="EndDate">
+        <msg-lang lang="fa">تاریخ پایان</msg-lang>
+        <msg-lang lang="en">End Date</msg-lang>
+    </message>
+    <message id="Category">
+        <msg-lang lang="fa">دسته</msg-lang>
+        <msg-lang lang="en">Category</msg-lang>
+    </message>
+    <message id="MaxSelectionHeader">
+        <msg-lang lang="fa">تعداد رای مجاز</msg-lang>
+        <msg-lang lang="en">Max Selection</msg-lang>
+    </message>
+    <message id="ParentCategory">
+        <msg-lang lang="fa">دسته بالاتر</msg-lang>
+        <msg-lang lang="en">Parent Category</msg-lang>
+    </message>
+    <message id="UploadCandidate">
+        <msg-lang lang="fa">بارگذاری نامزدها</msg-lang>
+        <msg-lang lang="en">Upload Candidate</msg-lang>
+    </message>
+    <message id="UploadCandidatesFile">
+        <msg-lang lang="fa">بارگذاری نامزدها</msg-lang>
+        <msg-lang lang="en">Upload Candidate</msg-lang>
+    </message>
 
 
 </messages>

@@ -47,6 +47,7 @@ public class UserController {
         return "redirect:user?error="+errorMessage;
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/userRemove", method = RequestMethod.GET)
     public @ResponseBody String remove(@RequestParam("removeId") String id) {
         userService.remove(id);

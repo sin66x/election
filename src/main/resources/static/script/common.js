@@ -44,7 +44,7 @@ function filterTable(endingColumns) {
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
   	for(j=0;j<tr[i].getElementsByTagName("td").length-endingColumns;j++){
     	cellValue = tr[i].getElementsByTagName("td")[j].innerHTML.toUpperCase();
         if (cellValue.indexOf(filter)>-1)
@@ -55,7 +55,7 @@ function filterTable(endingColumns) {
     }
   }
 
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
   	tr[i].style.display = "none";
   }
 

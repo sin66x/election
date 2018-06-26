@@ -5,6 +5,7 @@ import com.rqbank.eelection.domain.User;
 import com.rqbank.eelection.service.UserService;
 import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,7 @@ public class UploadVoterController {
     @Autowired
     Pair langPair;
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/uploadVoter", method = RequestMethod.GET)
     public String loadPage(Model model, @RequestParam("election") String electionId,@RequestParam(value = "error",required = false) String errorMessage) {
         model.addAttribute("file", new MyModelAttribute());
@@ -43,6 +45,7 @@ public class UploadVoterController {
         return "upload-voters";
     }
 
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("/electionUpload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,@RequestParam("electionId") String electionId,
                                    RedirectAttributes redirectAttributes) {

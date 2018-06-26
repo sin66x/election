@@ -94,5 +94,17 @@ public class CandidateServiceImpl implements CandidateService {
         }
     }
 
+    @Override
+    public void saveCandidateForElection(List<Candidate> candidates, String electionId) {
+        for(Candidate candidate:candidates){
+            candidate.setElection(electionService.getElectionById(Integer.parseInt(electionId)));
+            candidate.setIsActive("true");
+            candidate.setCreatedDate(new Date());
+            repository.save(candidate);
+            candidate.setCandidateCode(electionId+""+candidate.getId());
+            repository.saveAndFlush(candidate);
+        }
+    }
+
 
 }
