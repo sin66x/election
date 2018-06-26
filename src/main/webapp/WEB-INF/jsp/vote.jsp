@@ -20,37 +20,54 @@
     <script src="/script/common.js"></script>
 
 </head>
-<body dir="${langDir}">
+    <body dir="${langDir}">
 
-    <%@include file='header.jsp'%>
+        <%@include file='header.jsp'%>
 
-	<div class="container">
+        <div class="container voting_panel">
 
-            ${message}
-            <c:if test='${"".equals(message)||message==null}'>
-                <input  type="hidden" id="maxSelection" name="maxSelection" value="${maxSelection}" />
-                <input  type="hidden" id="electionId" name="electionId" value="${electionId}" />
-                <input type="text" id="myInput" onkeyup="filterTable(1)" placeholder='${messages.getMessage("Search",lang)}'/>
+                <label class="vote_message">${message}</label>
+                <c:if test='${"".equals(message)||message==null}'>
+                    <input  type="hidden" id="maxSelection" name="maxSelection" value="${maxSelection}" />
+                    <input  type="hidden" id="electionId" name="electionId" value="${electionId}" />
+                    <input class="search_box" type="text" id="myInput" onkeyup="filterTable(1)" placeholder='     ${messages.getMessage("Search",lang)}'/>
 
-                <table id="myTable">
-                  <c:forEach items="${candidates}" var="candidate">
+                    <table id="myTable" class="table_total">
                         <tr>
-                          <td>${candidate.firstName}</td>
-                          <td>${candidate.lastName}</td>
-                          <td><button type="button " class="addCandidate" value="${candidate.id}" >+</button></td>
+                              <th class="table_header">${messages.getMessage("CandidateCodeHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("FirstNameHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("LastNameHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("FatherNameHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("BirthdateHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("PersonalCodeHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("BirthCityHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("EmployDateHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("OfficialPositionHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("EducationFieldHeader",lang)}</th>
+                              <th class="table_header">${messages.getMessage("EducationUniHeader",lang)}</th>
+                              <th class="table_header"></th>
                         </tr>
-                  </c:forEach>
-                </table>
-                <button type="button" id="vote" name="vote" value="vote">${messages.getMessage("SubmitVote",lang)}</button>
-            </c:if>
-
-
-
-
-	</div>
-
-	<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</body>
+                      <c:forEach items="${candidates}" var="candidate">
+                            <tr>
+                              <td>${candidate.candidateCode}</td>
+                              <td>${candidate.firstName}</td>
+                              <td>${candidate.lastName}</td>
+                              <td>${candidate.fatherName}</td>
+                              <td>${candidate.jalaliBirthdate}</td>
+                              <td>${candidate.personalCode}</td>
+                              <td>${candidate.birthCity}</td>
+                              <td>${candidate.jalaliEmployDate}</td>
+                              <td>${candidate.officialPosition}</td>
+                              <td>${candidate.educationField}</td>
+                              <td>${candidate.educationUni}</td>
+                              <td><button type="button " class="addCandidate btn_notvoted" value="${candidate.id}" >+</button></td>
+                            </tr>
+                      </c:forEach>
+                    </table>
+                    <button type="button" class="btn_submit" id="vote" name="vote" value="vote">${messages.getMessage("SubmitVote",lang)}</button>
+                </c:if>
+        </div>
+        <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
 
 </html>

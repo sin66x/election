@@ -24,7 +24,6 @@ public class WelcomeController {
     @Autowired
     Pair langPair;
 
-    @PreAuthorize("hasRole('user')")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String loadPage(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

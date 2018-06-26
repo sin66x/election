@@ -1,37 +1,16 @@
-var data = {
-               "provinces" : [
-               	{
-               	 "code" : "1" ,
-               	 "name" : "Tehran",
-               	 "branches" : [
-               		{"code":"1","name":"branch1"},
-               		{"code":"2","name":"branch2"},
-               		{"code":"3","name":"branch3"},
-               		{"code":"4","name":"branch4"}
-               	 ]
-               	},
-               	{
-               	 "code" : "4" ,
-               	 "name" : "Khouzestan",
-               	 "branches" : [
-               		{"code":"1","name":"branch1"},
-               		{"code":"2","name":"branch2"},
-               		{"code":"3","name":"branch3"},
-               		{"code":"4","name":"branch4"}
-               	 ]
-               	},
-               	{
-               	 "code" : "3" ,
-               	 "name" : "Mazandaran",
-               	 "branches" : [
-               		{"code":"1","name":"branch1"},
-               		{"code":"2","name":"branch2"},
-               		{"code":"3","name":"branch3"},
-               		{"code":"4","name":"branch4"}
-               	 ]
-               	}
-               ]
-               };
+var data = (function () {
+               var json = null;
+               $.ajax({
+                   'async': false,
+                   'global': false,
+                   'url': '/data/province-branch.json',
+                   'dataType': "json",
+                   'success': function (data) {
+                       json = data;
+                   }
+               });
+               return json;
+           })();
 
 $(document).ready(function(){
 
@@ -128,6 +107,10 @@ $(document).ready(function(){
  });
 
  function makeBranchOptions(){
+        $('#branchCode')
+            .find('option')
+            .remove()
+            .end();
         for (i=0;i<data["provinces"].length;i++){
                 if(data["provinces"][i]["code"]==$("#provinceCode").val()){
                     for (j=0;j<data["provinces"][i]["branches"].length;j++){

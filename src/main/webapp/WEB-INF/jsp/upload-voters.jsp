@@ -28,19 +28,30 @@
 
 	<div class="container" >
 
-<form method="POST" enctype="multipart/form-data" action="electionUpload?${_csrf.parameterName}=${_csrf.token}">
-    ${errorMessage}
-    ${messages.getMessage("UploadUsersFile",lang)}
-    <form:input type="file" name="file" path="file"/>
+<form method="POST" enctype="multipart/form-data" action="electionUpload?${_csrf.parameterName}=${_csrf.token}" class="edit_box">
+    <div class="error_msg">
+        ${errorMessage}
+    </div>
+    <table>
+        <tr>
+            <td>
+                ${messages.getMessage("UploadUsersFile",lang)}
+            </td>
+            <td>
+                <form:input type="file" name="file" path="file"/>
+            </td>
+        </tr>
+    </table>
     <form:input type="hidden" name="electionId" path="electionId" value="${electionId}"/>
-    <button type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
+    <button class="btn_submit" type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
 </form>
-
-        <input type="text" id="myInput" onkeyup="filterTable(0)" placeholder='${messages.getMessage("Search",lang)}'/>
-        <table id="myTable">
-          <tr class="header">
-                 <th style="width:40%;">Username</th>
-          </tr>
+        <input class="search_box" type="text" id="myInput" onkeyup="filterTable(0)" placeholder='${messages.getMessage("Search",lang)}'/>
+        <table id="myTable" class="table_total">
+            <tr>
+                <th class="table_header">
+                    ${messages.getMessage("Categories",lang)}
+                </th>
+            </tr>
             <c:forEach items="${users}" var="selected_user">
               <tr>
                   <td>${selected_user.username}</td>

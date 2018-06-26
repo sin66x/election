@@ -1,5 +1,7 @@
 package com.rqbank.eelection.domain;
 
+import com.rqbank.eelection.util.date.DateConverter;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -240,4 +242,15 @@ public class Candidate {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    @Transient
+    public String getJalaliBirthdate() {
+        return DateConverter.miladiToShamsi(birthdate).toString("yyyy/mm/dd");
+    }
+
+    @Transient
+    public String getJalaliEmployDate() {
+        return DateConverter.miladiToShamsi(birthdate).toString("yyyy/mm/dd");
+    }
+
 }

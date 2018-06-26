@@ -13,4 +13,6 @@ public interface CandidateService {
     void remove(String id);
 
     Candidate findById(String id);
+
+    void saveCandidateForElection(List<Candidate> candidates, String electionId);
 }

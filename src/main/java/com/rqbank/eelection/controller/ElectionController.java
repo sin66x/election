@@ -28,6 +28,7 @@ public class ElectionController {
     @Autowired
     Pair langPair;
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/election", method = RequestMethod.GET)
     public String loadPage(Model model,@RequestParam(value = "error",required = false) String errorMessage) {
         ElectionDTO electionDTO = new ElectionDTO();
@@ -75,6 +76,7 @@ public class ElectionController {
         return new ElectionDTO(editingElec);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/electionRemove", method = RequestMethod.GET)
     public @ResponseBody String remove(@RequestParam("removeId") String id) {
         electionService.remove(id);

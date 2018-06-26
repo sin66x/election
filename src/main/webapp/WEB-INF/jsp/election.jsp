@@ -27,55 +27,58 @@
 
 
 	<div class="container" >
-        <form:form action="election" method="POST" modelAttribute="electionDTO">
-            ${errorMessage}
+        <form:form action="election" method="POST" modelAttribute="electionDTO" class="edit_box">
+            <div class="error_msg">
+                ${errorMessage}
+            </div>
+            <form:input name="id" id="id" path="id" type="hidden" />
+            <table>
+            <tr>
+                <td>${messages.getMessage("Name",lang)}</td>
+                <td><form:input name="name" id="name" path="name" /></td>
 
-            <form:input name="id" id="id" path="id" type="hidden"/>
+                <td>${messages.getMessage("MaxSelection",lang)}</td>
+                <td><form:input name="maxSelection" id="maxSelection" path="maxSelection" /></td>
+            </tr>
 
-            ${messages.getMessage("Name",lang)}
-            <form:input name="name" id="name" path="name" />
-
-            ${messages.getMessage("MaxSelection",lang)}
-            <form:input name="maxSelection" id="maxSelection" path="maxSelection" />
-            <br/>
-
-            ${messages.getMessage("Start",lang)}<br/>
-            ${messages.getMessage("Date",lang)}<br/>
-            <select class="input_date" id="startDay">
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
+            <tr>
+            <td>${messages.getMessage("StartDate",lang)}</td>
+            <td>
+            <select class="input_date combo_day" id="startDay" >
+                <option value="01">۱</option>
+                <option value="02">۲</option>
+                <option value="03">۳</option>
+                <option value="04">۴</option>
+                <option value="05">۵</option>
+                <option value="06">۶</option>
+                <option value="07">۷</option>
+                <option value="08">۸</option>
+                <option value="09">۹</option>
+                <option value="10">۱۰</option>
+                <option value="11">۱۱</option>
+                <option value="12">۱۲</option>
+                <option value="13">۱۳</option>
+                <option value="14">۱۴</option>
+                <option value="15">۱۵</option>
+                <option value="16">۱۶</option>
+                <option value="17">۱۷</option>
+                <option value="18">۱۸</option>
+                <option value="19">۱۹</option>
+                <option value="20">۲۰</option>
+                <option value="21">۲۱</option>
+                <option value="22">۲۲</option>
+                <option value="23">۲۳</option>
+                <option value="24">۲۴</option>
+                <option value="25">۲۵</option>
+                <option value="26">۲۶</option>
+                <option value="27">۲۷</option>
+                <option value="28">۲۸</option>
+                <option value="29">۲۹</option>
+                <option value="30">۳۰</option>
+                <option value="31">۳۱</option>
             </select>
              /
-            <select class="input_date" id="startMonth">
+            <select class="input_date combo_month" id="startMonth" >
                  <option value="01">فروردین</option>
                  <option value="02">اردیبهشت</option>
                  <option value="03">خرداد</option>
@@ -90,50 +93,52 @@
                  <option value="12">اسفند</option>
             </select>
             /
-            <select class="input_date" id="startYear">
+            <select class="input_date combo_year" id="startYear" >
                 <option value="1397">۱۳۹۷</option>
                 <option value="1398">۱۳۹۸</option>
                 <option value="1399">۱۳۹۹</option>
                 <option value="1400">۱۴۰۰</option>
             </select>
-
-            <br/>${messages.getMessage("End",lang)}<br/>
-            ${messages.getMessage("Date",lang)}
-            <select class="input_date" id="endDay">
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
+            </td>
+            <td>
+            ${messages.getMessage("EndDate",lang)}
+            </td>
+            <td>
+            <select class="input_date combo_day" id="endDay" >
+                <option value="01">۱</option>
+                <option value="02">۲</option>
+                <option value="03">۳</option>
+                <option value="04">۴</option>
+                <option value="05">۵</option>
+                <option value="06">۶</option>
+                <option value="07">۷</option>
+                <option value="08">۸</option>
+                <option value="09">۹</option>
+                <option value="10">۱۰</option>
+                <option value="11">۱۱</option>
+                <option value="12">۱۲</option>
+                <option value="13">۱۳</option>
+                <option value="14">۱۴</option>
+                <option value="15">۱۵</option>
+                <option value="16">۱۶</option>
+                <option value="17">۱۷</option>
+                <option value="18">۱۸</option>
+                <option value="19">۱۹</option>
+                <option value="20">۲۰</option>
+                <option value="21">۲۱</option>
+                <option value="22">۲۲</option>
+                <option value="23">۲۳</option>
+                <option value="24">۲۴</option>
+                <option value="25">۲۵</option>
+                <option value="26">۲۶</option>
+                <option value="27">۲۷</option>
+                <option value="28">۲۸</option>
+                <option value="29">۲۹</option>
+                <option value="30">۳۰</option>
+                <option value="31">۳۱</option>
             </select>
                  /
-            <select class="input_date" id="endMonth">
+            <select class="input_date combo_month" id="endMonth" >
                  <option value="01">فروردین</option>
                  <option value="02">اردیبهشت</option>
                  <option value="03">خرداد</option>
@@ -148,38 +153,76 @@
                  <option value="12">اسفند</option>
             </select>
                     /
-            <select class="input_date" id="endYear">
+            <select class="input_date combo_year" id="endYear">
                 <option value="1397">۱۳۹۷</option>
                 <option value="1398">۱۳۹۸</option>
                 <option value="1399">۱۳۹۹</option>
                 <option value="1400">۱۴۰۰</option>
             </select>
-
-            <br/>
-
+            </td>
+            </tr>
+            <tr>
+            <td>${messages.getMessage("Category",lang)}</td>
+            <td>
             <form:select id="category" path="category">
                 <option value="0">${messages.getMessage("SelectOne",lang)}</option>
                 <c:forEach items="${categories}" var="cat">
                     <option value="${cat.id}">${cat.name}</option>
                 </c:forEach>
             </form:select>
-
-            <button type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
-            <button id="clear" type="button">${messages.getMessage("Clear",lang)}</button>
+            </td>
+            <td></td>
+            <td></td>
+            </tr>
+            </table>
+            <button class="btn_submit" type="submit" value="Submit" >${messages.getMessage("Submit",lang)}</button>
+            <button class="btn_clear" id="clear" type="button">${messages.getMessage("Clear",lang)}</button>
 
             <form:input type="hidden" id="startDate" path="startDate" name="startDate"/>
             <form:input type="hidden" id="endDate" path="endDate" name="endDate"/>
 
         </form:form>
-
-        <c:forEach items="${elections}" var="election">
-             ${election.name} - ${election.jalaliStartDate} - ${election.jalaliEndDate}
-             <button type="button" id="editBtn${election.id}" name="editBtn${election.id}" value="${election.id}">${messages.getMessage("Edit",lang)}</button>
-             <button type="button" id="removeBtn${election.id}" name="removeBtn${election.id}" value="${election.id}">${messages.getMessage("Remove",lang)}</button>
-             <a href="candidate?election=${election.id}">${messages.getMessage("Candidates",lang)}</a>
-             <a href="uploadVoter?election=${election.id}">${messages.getMessage("Voters",lang)}</a>
-            <br/>
-        </c:forEach>
+        <div class="data_table">
+            <input class="search_box" type="text" id="myInput" onkeyup="filterTable(4)" placeholder='${messages.getMessage("Search",lang)}'/>
+            <table id="myTable" class="table_total">
+                <tr>
+                    <th class="table_header">${messages.getMessage("Elections",lang)}</th>
+                    <th class="table_header">${messages.getMessage("MaxSelectionHeader",lang)}</th>
+                    <th class="table_header">${messages.getMessage("StartDate",lang)}</th>
+                    <th class="table_header">${messages.getMessage("EndDate",lang)}</th>
+                    <th class="table_header">${messages.getMessage("Category",lang)}</th>
+                    <th class="table_header"></th>
+                    <th class="table_header"></th>
+                    <th class="table_header"></th>
+                    <th class="table_header"></th>
+                    <th class="table_header"></th>
+                </tr>
+                <c:forEach items="${elections}" var="election">
+                <tr>
+                    <td>${election.name}</td>
+                    <td>${election.maxSelection}</td>
+                    <td>${election.jalaliStartDate}</td>
+                    <td>${election.jalaliEndDate}</td>
+                    <td>${election.category.name}</td>
+                    <td>
+                        <button class="btn_submit" type="button" id="editBtn${election.id}" name="editBtn${election.id}" value="${election.id}">${messages.getMessage("Edit",lang)}</button>
+                    </td>
+                    <td>
+                        <button class="btn_clear" type="button" id="removeBtn${election.id}" name="removeBtn${election.id}" value="${election.id}">${messages.getMessage("Remove",lang)}</button>
+                    </td>
+                    <td>
+                         <a href="candidate?election=${election.id}">${messages.getMessage("Candidates",lang)}</a>
+                    </td>
+                    <td>
+                        <a href="uploadVoter?election=${election.id}">${messages.getMessage("Voters",lang)}</a>
+                     </td>
+                     <td>
+                         <a href="candidateUpload?election=${election.id}">${messages.getMessage("UploadCandidate",lang)}</a>
+                     </td>
+                </tr>
+                </c:forEach>
+            </table>
+        </div>
 
 
 	</div>

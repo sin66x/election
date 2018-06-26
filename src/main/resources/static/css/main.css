@@ -1,7 +1,139 @@
-h1{
-	color:#0000FF;
+body{
+     font-family:Yekan;
 }
 
-h2{
-	color:#FF0000;
+.table_header{
+    align-content : center;
+    text-align : center;
+    background: #181820;
+    color: white;
+}
+
+.table_total{
+    width:100%;
+    text-align : center;
+    align-content: center;
+    text-align: center;
+
+}
+.btn_clear{
+    background: blue;
+    border: none;
+    color: white;
+    width: 80px;
+    height: 34px;
+}
+.btn_clear:hover{
+    background: #2e2ef6;
+}
+.btn_submit{
+    background: green;
+    border: none;
+    color: white;
+    width: 80px;
+    height: 34px;
+}
+.btn_submit:hover{
+    background: #1cb31c;
+}
+.btn_notvoted{
+    background: blue;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: x-large;
+}
+.btn_notvoted:hover{
+    background: #2e2ef6;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: x-large;
+}
+td{
+    padding:10px;
+}
+.btn_voted{
+    background: green;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+.btn_voted:hover{
+    background: #1cb31c;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+.search_box {
+    padding: 5px;
+    margin: 10px;
+    width: 98%;
+    border: solid;
+    border-top-color: currentcolor;
+    border-right-color: currentcolor;
+    border-bottom-color: currentcolor;
+    border-left-color: currentcolor;
+    border-color: #cfcfcf;
+}
+
+.logout{
+    margin-left: 50px;
+    background: transparent;
+    color: white;
+    padding: 12px;
+    border: none;
+}
+
+.vote_message{
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.th_voting_elections{
+    text-align: justify
+}
+
+.edit_box{
+    background: #e0e0e0;
+    padding: 23px;
+    border: 2px;
+}
+
+.data_table{
+    margin-top: 20px;
+}
+
+.election_list_panel{
+    background: #e0e0e0;
+    padding: 10px;
+}
+
+.voting_panel{
+    background: #e0e0e0;
+    padding: 10px;
+}
+
+select{
+    width:200px;
+}
+
+.error_msg{
+    color:red;
+}
+
+.combo_day{
+    width:50px;
+}
+.combo_month{
+    width:80px;
+}
+.combo_year{
+    width:60px;
 }
