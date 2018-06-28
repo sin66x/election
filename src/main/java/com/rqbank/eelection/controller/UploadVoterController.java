@@ -2,8 +2,8 @@ package com.rqbank.eelection.controller;
 
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.User;
+import com.rqbank.eelection.model.LangPair;
 import com.rqbank.eelection.service.UserService;
-import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ public class UploadVoterController {
     UserService userService;
 
     @Autowired
-    Pair langPair;
+    LangPair langPair;
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/uploadVoter", method = RequestMethod.GET)

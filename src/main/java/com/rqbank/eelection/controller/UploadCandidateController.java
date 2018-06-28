@@ -3,12 +3,10 @@ package com.rqbank.eelection.controller;
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.config.provinceloader.Provinces;
 import com.rqbank.eelection.domain.Candidate;
-import com.rqbank.eelection.domain.User;
+import com.rqbank.eelection.model.LangPair;
 import com.rqbank.eelection.service.CandidateService;
-import com.rqbank.eelection.service.UserService;
 import com.rqbank.eelection.util.date.DateConverter;
 import com.rqbank.eelection.util.date.mDate;
-import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -33,7 +31,7 @@ public class UploadCandidateController {
     CandidateService candidateService;
 
     @Autowired
-    Pair langPair;
+    LangPair langPair;
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/candidateUpload", method = RequestMethod.GET)

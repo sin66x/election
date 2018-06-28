@@ -4,10 +4,10 @@ import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Candidate;
 import com.rqbank.eelection.exception.BadVoteException;
 import com.rqbank.eelection.model.CandidateDTO;
+import com.rqbank.eelection.model.LangPair;
 import com.rqbank.eelection.service.CandidateService;
 import com.rqbank.eelection.service.ElectionService;
 import com.rqbank.eelection.service.VoteService;
-import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -31,7 +31,7 @@ public class VoteController {
     CandidateService candidateService;
 
     @Autowired
-    Pair langPair;
+    LangPair langPair;
 
     @PreAuthorize("hasRole('user')")
     @RequestMapping(value = "/vote", method = RequestMethod.GET)

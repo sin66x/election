@@ -2,12 +2,10 @@ package com.rqbank.eelection.controller;
 
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Candidate;
-import com.rqbank.eelection.domain.Election;
 import com.rqbank.eelection.model.CandidateDTO;
-import com.rqbank.eelection.model.ElectionDTO;
+import com.rqbank.eelection.model.LangPair;
 import com.rqbank.eelection.service.CandidateService;
 import com.rqbank.eelection.util.date.mDate;
-import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -20,7 +18,7 @@ public class CandidateController {
     CandidateService candidateService;
 
     @Autowired
-    Pair langPair;
+    LangPair langPair;
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/candidate", method = RequestMethod.GET)
@@ -81,6 +79,7 @@ public class CandidateController {
                 "".equals(candidateDTO.getOfficialPosition()) ||
                 "".equals(candidateDTO.getPersonalCode()) ||
                 "".equals(candidateDTO.getEmployDate()) ||
+                "".equals(candidateDTO.getBranchCode()) ||
                 "".equals(candidateDTO.getProvinceCode())
                 )
             return "FillAllFields";

@@ -1,4 +1,4 @@
-var data = (function () {
+function loadJson(){
                var json = null;
                $.ajax({
                    'async': false,
@@ -10,12 +10,13 @@ var data = (function () {
                    }
                });
                return json;
-           })();
+}
+var jsonBranchProvince = loadJson();
 
 $(document).ready(function(){
-
-    for (i=0;i<data["provinces"].length;i++){
-        $("select#provinceCode").append( $("<option />").val(data["provinces"][i]["code"]).text(data["provinces"][i]["name"]) );
+    $("select#provinceCode").append( $("<option />").val("").text("-"));
+    for (i=0;i<jsonBranchProvince["provinces"].length;i++){
+        $("select#provinceCode").append( $("<option />").val(jsonBranchProvince["provinces"][i]["code"]).text(jsonBranchProvince["provinces"][i]["name"]) );
     }
 
 
@@ -77,7 +78,6 @@ $(document).ready(function(){
                 alert('error');
             },
             success : function(data) {
-                makeBranchOptions();
                 $("#id").val(data.id);
                 $("#firstName").val(data.firstName);
                 $("#lastName").val(data.lastName);
@@ -89,6 +89,7 @@ $(document).ready(function(){
                 $("#birthCity").val(data.birthCity);
                 $("#employDate").val(data.employDate);
                 $("#provinceCode").val(data.provinceCode);
+                makeBranchOptions();
                 $("#branchCode").val(data.branchCode);
                 $("#officialPosition").val(data.officialPosition);
                 $("#educationDegree").val(data.educationDegree);
@@ -99,7 +100,6 @@ $(document).ready(function(){
                 $("#externalHistory").val(data.externalHistory);
                 $("#election").val(data.election);
                 $("#isActive").val(data.isActive);
-
             }
         });
         return false;
@@ -111,10 +111,11 @@ $(document).ready(function(){
             .find('option')
             .remove()
             .end();
-        for (i=0;i<data["provinces"].length;i++){
-                if(data["provinces"][i]["code"]==$("#provinceCode").val()){
-                    for (j=0;j<data["provinces"][i]["branches"].length;j++){
-                        $("select#branchCode").append( $("<option />").val(data["provinces"][i]["branches"][j]["code"]).text(data["provinces"][i]["branches"][j]["name"]) );
+        $("select#branchCode").append( $("<option />").val("").text("-"));
+        for (i=0;i<jsonBranchProvince["provinces"].length;i++){
+                if(jsonBranchProvince["provinces"][i]["code"]==$("#provinceCode").val()){
+                    for (j=0;j<jsonBranchProvince["provinces"][i]["branches"].length;j++){
+                        $("select#branchCode").append( $("<option />").val(jsonBranchProvince["provinces"][i]["branches"][j]["code"]).text(jsonBranchProvince["provinces"][i]["branches"][j]["name"]) );
                     }
                 }
             }

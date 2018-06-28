@@ -4,8 +4,8 @@ import com.rqbank.eelection.config.msgloader.Message;
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Category;
 import com.rqbank.eelection.model.CategoryDTO;
+import com.rqbank.eelection.model.LangPair;
 import com.rqbank.eelection.service.CategoryService;
-import jdk.internal.util.xml.impl.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class CategoryController {
     CategoryService categoryService;
 
     @Autowired
-    Pair langPair;
+    LangPair langPair;
 
     @PreAuthorize("hasRole('admin')")
     @RequestMapping(value = "/category", method = RequestMethod.GET)
