@@ -2,7 +2,8 @@ package com.rqbank.eelection.model;
 
 import com.rqbank.eelection.domain.Election;
 import com.rqbank.eelection.util.date.DateConverter;
-import com.rqbank.eelection.util.date.*;
+import com.rqbank.eelection.util.date.mDate;
+
 import java.util.Date;
 
 public class ElectionDTO {

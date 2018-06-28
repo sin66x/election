@@ -1,7 +1,6 @@
 package com.rqbank.eelection;
 
 import com.rqbank.eelection.domain.User;
-import com.rqbank.eelection.repository.UserRepository;
 import com.rqbank.eelection.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +9,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import javax.annotation.PostConstruct;
-import java.util.Date;
 
 /**
  * @auther Behnam Safari

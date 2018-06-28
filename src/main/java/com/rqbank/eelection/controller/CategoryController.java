@@ -1,6 +1,5 @@
 package com.rqbank.eelection.controller;
 
-import com.rqbank.eelection.config.msgloader.Message;
 import com.rqbank.eelection.config.msgloader.Messages;
 import com.rqbank.eelection.domain.Category;
 import com.rqbank.eelection.model.CategoryDTO;
