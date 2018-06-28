@@ -296,6 +296,10 @@
         <msg-lang lang="fa">بارگذاری نامزدها</msg-lang>
         <msg-lang lang="en">Upload Candidate</msg-lang>
     </message>
+    <message id="FileNotFound">
+        <msg-lang lang="fa">فایل یافت نشد</msg-lang>
+        <msg-lang lang="en">File Not Found</msg-lang>
+    </message>
 
 
 </messages>
