@@ -1,7 +1,6 @@
 package com.rqbank.eelection.repository;
 
 import com.rqbank.eelection.domain.Election;
-import com.rqbank.eelection.domain.User;
 import com.rqbank.eelection.domain.UserElection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

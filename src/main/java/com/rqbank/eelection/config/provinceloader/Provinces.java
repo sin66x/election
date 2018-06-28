@@ -1,7 +1,6 @@
 package com.rqbank.eelection.config.provinceloader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rqbank.eelection.config.msgloader.Messages;
 
 import java.io.File;
 import java.nio.file.Files;
